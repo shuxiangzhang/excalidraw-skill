@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Generate an import-free, awaitable Obsidian EA script from a diagram definition. */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, realpathSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { iconNames } from "../assets/icons.mjs";
@@ -106,6 +106,16 @@ function main() {
   console.log(`Generated ${resolve(paths[1])}: ${input.nodes.length} nodes, ${input.edges.length} edges.`);
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+/** Node resolves module URLs through symlinks; compare canonical paths on both sides. */
+function isCliInvocation() {
+  if (!process.argv[1]) return false;
+  try {
+    return realpathSync(resolve(process.argv[1])) === realpathSync(fileURLToPath(import.meta.url));
+  } catch {
+    return false;
+  }
+}
+
+if (isCliInvocation()) {
   try { main(); } catch (error) { console.error(error.message); process.exitCode = 1; }
 }

@@ -62,6 +62,16 @@ The native Obsidian CLI is optional; the skill can use it to create drawings, ru
 scripts, and export previews. Without a running Obsidian environment, it can
 still generate the runnable script.
 
+## Checks
+
+Run the regression tests using Node's built-in runner:
+
+```sh
+node --test tests/*.test.mjs
+```
+
+The CLI test verifies script generation through a symlinked checkout.
+
 ## Contents
 
 | Path | Purpose |
