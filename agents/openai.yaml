@@ -1,0 +1,4 @@
+interface:
+  display_name: "Excalidraw"
+  short_description: "从项目代码生成带图标、可编辑的 Excalidraw 流程图，并保存到 Obsidian"
+  default_prompt: "使用 $excalidraw 分析当前项目代码，生成带图标的可编辑工作流程图，并保存到 Obsidian。"

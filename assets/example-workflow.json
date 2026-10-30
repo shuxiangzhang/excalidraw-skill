@@ -1,0 +1,13 @@
+{
+  "title": "Example application workflow",
+  "subtitle": "Replace these sample steps with evidence from the target codebase.",
+  "columns": 3,
+  "rowTitles": [{ "row": 0, "title": "Request processing" }],
+  "nodes": [
+    { "id": "request", "title": "Receive request", "description": "Read the request at the application entry point.", "icon": "play", "sources": [] },
+    { "id": "validate", "title": "Validate input", "description": "Check required values before performing the operation.", "icon": "check", "sources": [] },
+    { "id": "respond", "title": "Return the result", "description": "Send a successful result or a documented error response.", "icon": "monitorCheck", "sources": [] }
+  ],
+  "edges": [{ "from": "request", "to": "validate" }, { "from": "validate", "to": "respond", "label": "valid" }],
+  "footer": "Sample definition only; analyze the target code before creating its diagram."
+}
