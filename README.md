@@ -2,6 +2,10 @@
 
 **Ask Codex to turn a project's code into an editable workflow diagram in Obsidian.**
 
+This skill grew out of [Zsolt Viczián's `ea-script-template`](https://github.com/zsviczian/ea-script-template)
+and builds on his [Obsidian Excalidraw plugin](https://github.com/zsviczian/obsidian-excalidraw-plugin).
+See [Credits and original work](#credits-and-original-work) for the upstream projects.
+
 For example, ask “What happens when a user signs in?” Codex reads the relevant
 code, identifies the steps, and prepares an Excalidraw drawing with labeled cards,
 icons, and connecting arrows. You can then move shapes and edit the text yourself.
@@ -213,6 +217,27 @@ The second command uses macOS/Linux shell syntax. On Windows, use
 `git -C "$HOME/.codex/skills/excalidraw" pull --ff-only`, or your custom Codex home
 path. If you have local changes that prevent an update, keep them and resolve
 the changes before pulling again.
+
+## Credits and original work
+
+Thank you to **Zsolt Viczián ([@zsviczian](https://github.com/zsviczian))** and
+the upstream contributors whose work made this skill possible:
+
+- **[ea-script-template](https://github.com/zsviczian/ea-script-template)** —
+  the original project that this skill grew out of. Its ExcalidrawAutomate
+  authoring workflow, examples, and guidance informed this skill's scripting
+  approach. [Upstream license: AGPL-3.0](https://github.com/zsviczian/ea-script-template/blob/main/LICENSE).
+- **[Obsidian Excalidraw](https://github.com/zsviczian/obsidian-excalidraw-plugin)**,
+  also by Zsolt Viczián — provides the Obsidian integration, Script Engine,
+  ExcalidrawAutomate API, and native CLI that this skill uses to create and edit
+  drawings. [Upstream license: AGPL-3.0](https://github.com/zsviczian/obsidian-excalidraw-plugin/blob/master/LICENSE).
+- **[Excalidraw](https://github.com/excalidraw/excalidraw)** — the drawing editor
+  and editable scene format, created and maintained by the Excalidraw team and
+  contributors. [Upstream license: MIT](https://github.com/excalidraw/excalidraw/blob/master/LICENSE).
+
+This repository packages that workflow as a reusable Codex skill, with a
+standalone diagram generator, drawing resources, and beginner documentation.
+The upstream license links describe the respective upstream projects.
 
 ## For contributors
 
