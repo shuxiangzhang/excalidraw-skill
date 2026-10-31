@@ -1,0 +1,63 @@
+{
+  "title": "From code to an editable diagram",
+  "subtitle": "The workflow used by this skill. Cards, icons, text, and arrows stay editable.",
+  "columns": 3,
+  "cardWidth": 380,
+  "rowTitles": [
+    { "row": 0, "title": "In Codex: understand and prepare" },
+    { "row": 1, "title": "Generate, draw, and refine" }
+  ],
+  "nodes": [
+    {
+      "id": "ask",
+      "title": "Choose what to explain",
+      "description": "Ask Codex for a workflow, architecture, or a specific feature's journey.",
+      "command": "$excalidraw",
+      "sources": ["SKILL.md:10"],
+      "icon": "play"
+    },
+    {
+      "id": "trace",
+      "title": "Trace the actual code",
+      "description": "Read entry points and functions. Connect each important step to its source.",
+      "sources": ["SKILL.md:19"],
+      "icon": "search"
+    },
+    {
+      "id": "define",
+      "title": "Describe the diagram",
+      "description": "Prepare nodes, arrows, labels, icons, and positions as a JSON definition.",
+      "sources": ["references/diagram-spec.md"],
+      "icon": "code"
+    },
+    {
+      "id": "generate",
+      "title": "Generate a script",
+      "description": "Bundle the definition, drawing code, and vector icons into one runnable .md file.",
+      "sources": ["scripts/generate_script.mjs:79"],
+      "icon": "package"
+    },
+    {
+      "id": "draw",
+      "title": "Run it in Obsidian",
+      "description": "The Excalidraw Script Engine adds grouped cards and bound arrows to a drawing.",
+      "sources": ["assets/runtime.js:189"],
+      "icon": "pencil"
+    },
+    {
+      "id": "refine",
+      "title": "Edit and keep the result",
+      "description": "Move shapes, rewrite labels, or ask Codex to update the existing drawing.",
+      "sources": ["SKILL.md:50"],
+      "icon": "save"
+    }
+  ],
+  "edges": [
+    { "from": "ask", "to": "trace" },
+    { "from": "trace", "to": "define" },
+    { "from": "define", "to": "generate" },
+    { "from": "generate", "to": "draw" },
+    { "from": "draw", "to": "refine" }
+  ],
+  "footer": "Read 01 to 03 across the top, then 04 to 06 from right to left. Source labels refer to this repository."
+}
